@@ -3,11 +3,6 @@ import {View, TouchableOpacity, Image, Text, StyleSheet} from 'react-native';
 
 const cryptos = (props) => {
 
-    const [line,setLine]=useState([]);
-
-    useEffect(() => {
-    }, [])
-
     return (    
             <View style={styles.MainContainer}>
                 <View style={styles.container}>
