@@ -24,10 +24,7 @@ const cryptos = (props) => {
                 </View>
                 <View style={styles.container2}>
                     <Text style={styles.price}>$ {[props.crypto.current_price]}</Text>
-                    {props.crypto.price_change_percentage_24h.toString().charAt(0)=='-'?
-                    <Text style={{color:'red'}}>{props.crypto.price_change_percentage_24h}%</Text>:
-                    <Text style={{color:'green'}}>{props.crypto.price_change_percentage_24h}%</Text>
-                    }
+                    <Text style={{color:props.crypto.price_change_percentage_24h.toString().charAt(0)=='-'?'red':'green'}}>{props.crypto.price_change_percentage_24h}%</Text>
                 </View>
             <View style={styles.hr}></View>
             </View>
