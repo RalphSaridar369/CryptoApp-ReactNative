@@ -42,19 +42,10 @@ const home = (props) => {
             }
     },[]);
 
-    if(loading){
-        return(
-            <View>
-                <ActivityIndicator size="large" color="orange" style={{marginTop:height/3}}/>
-            </View>
-        )
-    }
-
     return (
-            <View>{/*
-                <GestureRecognizer
-                    config={config}
-            onSwipeLeft={() => props.navigation.navigate('news')}>*/}
+        {loading ?(<View>
+                <ActivityIndicator size="large" color="orange" style={{marginTop:height/3}}/>
+                </View>):(<View>
                 <FlatList
                 data={data}
                 onEndReached={fetchMore}
@@ -66,8 +57,7 @@ const home = (props) => {
                     )
                 }
                 />
-                {/*</GestureRecognizer>*/}
-            </View>
+            </View>)}
     )
 }
 
