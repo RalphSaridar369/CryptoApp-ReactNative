@@ -201,10 +201,7 @@ const detailedCrypto = ({route}) => {
                 </View>
                 <View style={styles.textsContainer}>
                     <Text style={[styles.titleInfo]}>All Time Low Change Percentage:</Text>
-                    {JSON.stringify(route.params.atl_change_percentage).toString().charAt(0)=='-'?
-                    <Text style={[styles.texts,{color:'red'}]}>{JSON.stringify(route.params.atl_change_percentage)}%</Text>:
-                    <Text style={[styles.texts,{color:'green'}]}>{JSON.stringify(route.params.atl_change_percentage)}%</Text>
-                    }
+                    <Text style={[styles.texts,{color:JSON.stringify(route.params.atl_change_percentage).toString().charAt(0)=='-'?'red':'green'}]}>{JSON.stringify(route.params.atl_change_percentage)}%</Text>
                 </View>
                 <View style={styles.textsContainer}>
                     <Text style={[styles.titleInfo]}>All Time Low Date:</Text>
@@ -242,10 +239,7 @@ const detailedCrypto = ({route}) => {
                 </View>
                 <View style={styles.textsContainer}>
                     <Text style={[styles.titleInfo]}>All Time Low Change Percentage:</Text>
-                    {JSON.stringify(route.params.atl_change_percentage).toString().charAt(0)=='-'?
-                    <Text style={[styles.texts,{color:'red'}]}>{JSON.stringify(route.params.atl_change_percentage)}%</Text>:
-                    <Text style={[styles.texts,{color:'green'}]}>{JSON.stringify(route.params.atl_change_percentage)}%</Text>
-                    }
+                    <Text style={[styles.texts,{color:JSON.stringify(route.params.atl_change_percentage).toString().charAt(0)=='-'?'red':'green}]}>{JSON.stringify(route.params.atl_change_percentage)}%</Text>
                 </View>
                 <View style={styles.textsContainer}>
                     <Text style={[styles.titleInfo]}>All Time Low Date:</Text>
@@ -274,17 +268,11 @@ const detailedCrypto = ({route}) => {
                 </View>
                 <View style={styles.textsContainer}>
                     <Text style={[styles.titleInfo]}>Price Change in 24h:</Text>
-                    {JSON.stringify(route.params.price_change_24h).toString().charAt(0)=='-'?
-                    <Text style={[styles.texts,{color:'red'}]}>${JSON.stringify(route.params.price_change_24h)}</Text>:
-                    <Text style={[styles.texts,{color:'green'}]}>${JSON.stringify(route.params.price_change_24h)}</Text>
-                    }
+                    <Text style={[styles.texts,{color:JSON.stringify(route.params.price_change_24h).toString().charAt(0)=='-'?'red':'green'}]}>${JSON.stringify(route.params.price_change_24h)}</Text>
                 </View>
                 <View style={styles.textsContainer}>
                     <Text style={[styles.titleInfo]}>Price Change Rate in 24h:</Text>
-                    {JSON.stringify(route.params.price_change_percentage_24h).toString().charAt(0)=='-'?
-                    <Text style={[styles.texts,{color:'red'}]}>{JSON.stringify(route.params.price_change_percentage_24h)}%</Text>:
-                    <Text style={[styles.texts,{color:'green'}]}>{JSON.stringify(route.params.price_change_percentage_24h)}%</Text>
-                    }
+                    <Text style={[styles.texts,{color:JSON.stringify(route.params.price_change_percentage_24h).toString().charAt(0)=='-'?'red':'green'}]}>{JSON.stringify(route.params.price_change_percentage_24h)}%</Text>
                 </View>
             </CollapsibleList>
             </ChartPathProvider>
