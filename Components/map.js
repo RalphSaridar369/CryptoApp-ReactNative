@@ -15,3 +15,11 @@ export const apiCalc = [
   value:'rate'
   },   
  ];
+
+/*
+export const detailedCrypto = [
+  {
+    
+  }
+ ]
+ */
