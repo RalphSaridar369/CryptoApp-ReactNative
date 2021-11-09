@@ -5,6 +5,7 @@ import {View, Text, TextInput, Button,
     TouchableOpacity} from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import {apiCalc} from './map';
 
 import BG from '../assets/backgroundCalculator2.jpg';
 
@@ -55,33 +56,18 @@ const calculateAPY = () => {
                     {(formikProps)=>(
                         <View
                         style={styles.Container}>
-                            <TextInput
-                            style={styles.Inputs}
-                            placeholder="Number Of Coins"
-                            keyboardType="numeric"
-                            onChangeText={formikProps.handleChange('numbercoins')}
-                            value={formikProps.values.numbercoins}
-                            onBlur={formikProps.handleBlur('numbercoins')}
-                            />
-                            <Text style={styles.error}>{formikProps.touched.numbercoins && formikProps.errors.numbercoins}</Text>
-                            <TextInput
-                            style={styles.Inputs}
-                            placeholder="Price in $"
-                            keyboardType="numeric"
-                            onChangeText={formikProps.handleChange('pricecoin')}
-                            value={formikProps.values.pricecoin}
-                            onBlur={formikProps.handleBlur('pricecoin')}
-                            />
-                            <Text style={styles.error}>{formikProps.touched.pricecoin && formikProps.errors.pricecoin}</Text>
-                            <TextInput
-                            style={styles.Inputs}
-                            placeholder="Rate in %"
-                            keyboardType="numeric"
-                             onChangeText={formikProps.handleChange('rate')}
-                            value={formikProps.values.rate}
-                            onBlur={formikProps.handleBlur('rate')}
-                            />
-                            <Text style={styles.error}>{formikProps.touched.rate && formikProps.errors.rate}</Text>
+                         {apiCalc.map((item,index)=><>
+                                 <TextInput
+                                 key={index}
+                                 style={styles.Inputs}
+                                 placeholder={item.placeholder}
+                                 keyboardType={item.keyboardType}
+                                 onChangeText={formikProps.handleChange(item.value)}
+                                 value={formikProps.values[item.value]}
+                                 onBlur={formikProps.handleBlur(item.value)}
+                                 />
+                                 <Text style={styles.error}>{formikProps.touched[item.value] && formikProps.errors[item.value]}</Text>
+                            </>}
                             <TouchableOpacity style={styles.ButtonStyled} onPress={formikProps.handleSubmit}>
                                 <Text style={styles.StyledText}>SUBMIT</Text>
                             </TouchableOpacity>
