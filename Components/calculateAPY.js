@@ -67,12 +67,11 @@ const calculateAPY = () => {
                                  onBlur={formikProps.handleBlur(item.value)}
                                  />
                                  <Text style={styles.error}>{formikProps.touched[item.value] && formikProps.errors[item.value]}</Text>
-                            </>}
+                            </>)}
                             <TouchableOpacity style={styles.ButtonStyled} onPress={formikProps.handleSubmit}>
                                 <Text style={styles.StyledText}>SUBMIT</Text>
                             </TouchableOpacity>
-                        </View>
-                    )}
+                        </View>)}
                 </Formik>
         </ImageBackground>
     );
