@@ -239,7 +239,7 @@ const detailedCrypto = ({route}) => {
                 </View>
                 <View style={styles.textsContainer}>
                     <Text style={[styles.titleInfo]}>All Time Low Change Percentage:</Text>
-                    <Text style={[styles.texts,{color:JSON.stringify(route.params.atl_change_percentage).toString().charAt(0)=='-'?'red':'green}]}>{JSON.stringify(route.params.atl_change_percentage)}%</Text>
+                    <Text style={[styles.texts,{color:JSON.stringify(route.params.atl_change_percentage).toString().charAt(0)=='-'?'red':'green'}]}>{JSON.stringify(route.params.atl_change_percentage)}%</Text>
                 </View>
                 <View style={styles.textsContainer}>
                     <Text style={[styles.titleInfo]}>All Time Low Date:</Text>
