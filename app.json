@@ -4,7 +4,7 @@
     "slug": "BullMarket",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./bulllogo.png",
+    "icon": "./assets/bulllogo.png",
     "splash": {
       "image": "",
       "resizeMode": "contain",
@@ -13,9 +13,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -24,7 +22,7 @@
         "foregroundImage": "",
         "backgroundColor": "#FFFFFF"
       },
-      "package":"com.ralph_saridar.BullMarket"
+      "package": "com.ralph_saridar.BullMarket"
     },
     "web": {
       "favicon": "./assets/favicon.png"
