@@ -28,12 +28,10 @@ const News = (props) => {
         "https://cryptopanic.com/api/v1/posts/?auth_token=403222a304bab7ff62de12cfd3d2b97c1b4fced8&filter=hot"
       )
       .then((resp) => {
-        console.log(resp.data.results);
         try {
           setNews(resp.data.results);
-          console.log("SUCCESS");
         } catch (e) {
-          console.log(e);
+          console.error(e);
         }
       })
       .then((r) => setLoading(false));

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
-const cryptos = (props) => {
+const Cryptos = (props) => {
   return (
     <View style={styles.MainContainer}>
       <View style={styles.container}>
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default cryptos;
+export default Cryptos;

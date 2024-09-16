@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import Navigation from "./routes/StackContainer";
-import { View, Text, Animated, StatusBar } from "react-native";
+import Navigation from "./src/stacks/StackContainer";
+import { View, Text, StatusBar, Animated } from "react-native";
+import "react-native-reanimated";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(false);
   const bullAnimation = useRef(new Animated.Value(0)).current;
   const animateBull = () => {
     Animated.timing(bullAnimation, {
@@ -34,7 +36,7 @@ export default function App() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Animated.Image
-          source={require("./bull.png")}
+          source={require("./assets/bull.png")}
           style={{
             width: 30,
             height: 30,

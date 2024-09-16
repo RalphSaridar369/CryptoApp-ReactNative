@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import axios from "axios";
 
-const home = (props) => {
+const Home = ({ navigation }) => {
   const fetchMore = async () => {
     setIndex(index + 50);
     const data = await axios
@@ -39,14 +39,11 @@ const home = (props) => {
         )
         .then((res) => {
           dataRef.current = res.data;
-          //console.log(dataRef);
           setData(res.data);
           setLoading(false);
-
-          //    console.log(res.data);
         });
     } catch (e) {
-      console.log("error");
+      console.error("error");
     }
   }, []);
 
@@ -70,8 +67,8 @@ const home = (props) => {
           renderItem={({ item }) => (
             <TouchableOpacity
               onPress={() => {
-                props.navigation.setOptions({ title: item.title });
-                props.navigation.navigate("detailed", item);
+                navigation.setOptions({ title: item.title });
+                navigation.navigate("detailed", item);
               }}
             >
               <Cryptos crypto={item} />
@@ -82,4 +79,4 @@ const home = (props) => {
     );
 };
 
-export default home;
+export default Home;

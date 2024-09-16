@@ -6,14 +6,12 @@ import {
   createStackNavigator,
   CardStyleInterpolators,
 } from "@react-navigation/stack";
-import { createDrawerNavigator } from "@react-navigation/drawer";
 import Home from "../screens/home";
 import News from "../screens/news";
-import calculateAPY from "../screens/calculateAPY";
-import learningScreen from "../screens/learningScreen";
-import global from "../screens/global";
+import CalculateAPY from "../screens/calculateAPY";
+import LearningScreen from "../screens/learningScreen";
 import { In, ADT, ST, HNS, DT, TT, BP, BR, RW } from "../screens/Intro";
-import Header from "../screens/header";
+import Header from "../components/header";
 import Detailed from "../screens/detailedCrypto";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -29,8 +27,6 @@ const StackHome = createStackNavigator();
 const StackNews = createStackNavigator();
 const StackAPY = createStackNavigator();
 const stackLearn = createStackNavigator();
-const Drawer1 = createDrawerNavigator();
-const BTC = createBottomTabNavigator();
 
 const HomeNav = ({ navigation }) => {
   return (
@@ -47,7 +43,7 @@ const HomeNav = ({ navigation }) => {
       <StackHome.Screen
         name="detailed"
         component={Detailed}
-        options={({ route }) => ({
+        options={({ route }: any) => ({
           headerTitle: () => (
             <View>
               <Text style={{ fontSize: 24, fontWeight: "bold" }}>
@@ -80,20 +76,8 @@ const StackCalculator = ({ navigation }) => {
     <StackAPY.Navigator>
       <StackAPY.Screen
         name="Yield Calculator"
-        component={calculateAPY}
+        component={CalculateAPY}
         options={{ headerTitle: () => <SecondHeader name="APY Calculator" /> }}
-      />
-    </StackAPY.Navigator>
-  );
-};
-
-const StackGlobal = ({ navigation }) => {
-  return (
-    <StackAPY.Navigator>
-      <StackAPY.Screen
-        name="Global"
-        component={global}
-        options={{ headerTitle: () => <SecondHeader name="Coin Gecko Info" /> }}
       />
     </StackAPY.Navigator>
   );
@@ -108,8 +92,7 @@ const StackLearning = ({ navigation }) => {
     >
       <stackLearn.Screen
         name="Learning Screen"
-        navigation={navigation}
-        component={learningScreen}
+        component={LearningScreen}
         options={{
           headerTitle: () => <SecondHeader name="Become an Investor" />,
         }}
@@ -146,9 +129,10 @@ function MyTabs() {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="Feed"
-        tabBarOptions={{
-          activeTintColor: "orange",
-          showLabel: false,
+        screenOptions={{
+          tabBarActiveTintColor: "orange",
+          tabBarShowLabel: false,
+          headerShown: false,
         }}
       >
         <Tab.Screen
@@ -184,15 +168,6 @@ function MyTabs() {
           options={{
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="book-outline" color={color} size={size} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Global"
-          component={StackGlobal}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="earth-outline" color={color} size={size} />
             ),
           }}
         />

@@ -1,3 +1,5 @@
+import { KeyboardType } from "react-native";
+
 export const apiCalc = [
   {
     placeholder: "Number Of Coins",

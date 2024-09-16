@@ -5,7 +5,7 @@ const Header = (props) => {
   return (
     <View>
       <View style={styles.header}>
-        <Image style={styles.logo} source={require("../bull.png")} />
+        <Image style={styles.logo} source={require("../../assets/bull.png")} />
         <Text style={styles.text1}>Bull</Text>
         <Text style={{ fontSize: 26, color: "black" }}>Market</Text>
       </View>
