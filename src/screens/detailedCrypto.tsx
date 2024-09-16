@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -14,7 +14,6 @@ import Collapsible from "react-native-collapsible";
 
 const DetailedCrypto = ({ route }) => {
   const [coin, setCoin] = useState<any>();
-  const [price, setPrice] = useState<number>(1000);
   const [dataChart, setDataChart] = useState([]);
   const [coinLoaded, setCoinLoaded] = useState(false);
   const [chartLoaded, setChartLoaded] = useState(false);
@@ -37,7 +36,6 @@ const DetailedCrypto = ({ route }) => {
       );
       setCoin(res.data);
       setCoinLoaded(true);
-      setPrice(res.data.market_data.current_price.usd.toFixed(2));
       const modifiedData = addTimeStamp(route.params.sparkline_in_7d.price);
       setDataChart(modifiedData);
       setChartLoaded(true);
@@ -69,12 +67,7 @@ const DetailedCrypto = ({ route }) => {
   return (
     <ScrollView>
       {chartLoaded && coinLoaded && (
-        <LineChart.Provider
-          data={dataChart}
-          onCurrentIndexChange={(e) => {
-            setPrice(dataChart[e].value.toFixed(2));
-          }}
-        >
+        <LineChart.Provider data={dataChart}>
           <View style={styles.chartContainer}>
             <View
               style={{
@@ -127,22 +120,24 @@ const DetailedCrypto = ({ route }) => {
                 ) : null}
               </View>
             </View>
-            <Text style={styles.chartPrice}>${price.toString()}</Text>
+            <LineChart.PriceText
+              style={styles.chartPrice}
+              format={({ value }) => {
+                "worklet";
+                const formattedPrice =
+                  value || coin.market_data.current_price.usd.toFixed(2);
+                return `$${formattedPrice}`;
+              }}
+            />
           </View>
           <LineChart>
             <LineChart.Path width={1} />
-            <LineChart.CursorCrosshair
-              color="#ffb733"
-              size={15}
-              onEnded={() =>
-                setPrice(coin.market_data.current_price.usd.toFixed(2))
-              }
-            />
+            <LineChart.CursorCrosshair color="#ffb733" size={15} />
           </LineChart>
         </LineChart.Provider>
       )}
       {coinLoaded && (
-        <Collapsible style={styles.infoContainer}>
+        <Collapsible style={styles.infoContainer} collapsed={true}>
           <View style={styles.textsContainer}>
             <Text style={[styles.titleInfo]}>Description:</Text>
             <Text style={styles.texts}>
@@ -376,13 +371,14 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   infoContainer: {
+    flex: 1,
     height: 100,
     borderWidth: 0.4,
     borderColor: "#ffb733",
     marginVertical: 10,
     marginHorizontal: 10,
     borderRadius: 20,
-    backgroundColor: "white",
+    backgroundColor: "red",
   },
   chartContainer: {
     marginHorizontal: 20,

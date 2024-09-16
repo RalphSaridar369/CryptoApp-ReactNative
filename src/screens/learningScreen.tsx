@@ -36,7 +36,7 @@ const LearningScreen = ({ navigation }) => {
       componentName: "DT",
     },
     {
-      title: "Tripple Top - Bottom",
+      title: "Triple Top - Bottom",
       image: require("../../assets/images/TTB.jpg"),
       componentName: "TT",
     },

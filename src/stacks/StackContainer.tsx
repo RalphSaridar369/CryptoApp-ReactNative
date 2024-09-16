@@ -10,7 +10,7 @@ import Home from "../screens/home";
 import News from "../screens/news";
 import CalculateAPY from "../screens/calculateAPY";
 import LearningScreen from "../screens/learningScreen";
-import { In, ADT, ST, HNS, DT, TT, BP, BR, RW } from "../screens/Intro";
+import { Intro, ADT, ST, HNS, DT, TT, BP, BR, RW } from "../screens/Learning";
 import Header from "../components/header";
 import Detailed from "../screens/detailedCrypto";
 import { Ionicons } from "@expo/vector-icons";
@@ -97,7 +97,7 @@ const StackLearning = ({ navigation }) => {
           headerTitle: () => <SecondHeader name="Become an Investor" />,
         }}
       />
-      <stackLearn.Screen name="Basic Rules" component={In} />
+      <stackLearn.Screen name="Basic Rules" component={Intro} />
       <stackLearn.Screen name="ADT" component={ADT} />
       <stackLearn.Screen name="ST" component={ST} />
       <stackLearn.Screen name="HNS" component={HNS} />
