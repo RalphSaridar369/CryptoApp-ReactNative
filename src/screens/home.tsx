@@ -12,7 +12,7 @@ import axios from "axios";
 const Home = ({ navigation }) => {
   const fetchMore = async () => {
     setIndex(index + 50);
-    const data = await axios
+    await axios
       .get(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${index}&page=1&sparkline=true`
       )
@@ -25,11 +25,6 @@ const Home = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const dataRef = useRef();
-
-  const config = {
-    velocityThreshold: 0.3,
-    directionalOffsetThreshold: 80,
-  };
 
   useEffect(() => {
     try {

@@ -5,7 +5,6 @@ import "react-native-reanimated";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  // const [loading, setLoading] = useState(false);
   const bullAnimation = useRef(new Animated.Value(0)).current;
   const animateBull = () => {
     Animated.timing(bullAnimation, {

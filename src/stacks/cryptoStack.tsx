@@ -1,7 +1,6 @@
 import React from "react";
 import Home from "../screens/home";
 import Header from "../components/header";
-// import DetailedCrypto from "../screens/detailedCrypto";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RouteProp } from "@react-navigation/native";
 import detailedCrypto from "../screens/detailedCrypto";
