@@ -75,7 +75,13 @@ const News = (props) => {
                   {item.url}
                 </Text>
               </Text>
-              <View style={{ display: "flex", flexDirection: "row" }}>
+              <View
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
                 <View style={styles.like}>
                   <Text>
                     {item.votes.positive != 0 ? item.votes.positive : "0"}
@@ -119,6 +125,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     padding: 10,
+    alignItems: "center",
+    gap: 5,
   },
   title: {
     width: 300,
