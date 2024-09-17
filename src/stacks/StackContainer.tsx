@@ -9,11 +9,19 @@ import {
 import Home from "../screens/home";
 import News from "../screens/news";
 import CalculateAPY from "../screens/calculateAPY";
-import LearningScreen from "../screens/learningScreen";
-import { Intro, ADT, ST, HNS, DT, TT, BP, BR, RW } from "../screens/Learning";
+import LearningScreen from "../screens/LearningHome";
 import Header from "../components/header";
 import Detailed from "../screens/detailedCrypto";
 import { Ionicons } from "@expo/vector-icons";
+import { Intro } from "../screens/learning/intro";
+import { ADT } from "../screens/learning/adt";
+import { ST } from "../screens/learning/st";
+import { HNS } from "../screens/learning/hns";
+import { DT } from "../screens/learning/dt";
+import { TT } from "../screens/learning/tt";
+import { BP } from "../screens/learning/bp";
+import { BR } from "../screens/learning/br";
+import { RW } from "../screens/learning/rw";
 
 const MyTheme = {
   ...DefaultTheme,

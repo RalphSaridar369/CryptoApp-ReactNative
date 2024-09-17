@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import axios from "axios";
 import { LineChart } from "react-native-wagmi-charts";
-import Collapsible from "react-native-collapsible";
+import Collapsible from "../components/collapsible";
 
 const DetailedCrypto = ({ route }) => {
   const [coin, setCoin] = useState<any>();
@@ -137,7 +137,7 @@ const DetailedCrypto = ({ route }) => {
         </LineChart.Provider>
       )}
       {coinLoaded && (
-        <Collapsible style={styles.infoContainer} collapsed={true}>
+        <Collapsible style={styles.infoContainer} title="Basic Info">
           <View style={styles.textsContainer}>
             <Text style={[styles.titleInfo]}>Description:</Text>
             <Text style={styles.texts}>
@@ -175,7 +175,7 @@ const DetailedCrypto = ({ route }) => {
           </View>
         </Collapsible>
       )}
-      <Collapsible style={styles.infoContainer}>
+      <Collapsible style={styles.infoContainer} title="Data">
         <View style={styles.textsContainer}>
           <Text style={[styles.titleInfo]}>Current Price:</Text>
           <Text style={styles.texts}>
@@ -233,7 +233,7 @@ const DetailedCrypto = ({ route }) => {
         </View>
       </Collapsible>
 
-      <Collapsible style={styles.infoContainer}>
+      <Collapsible style={styles.infoContainer} title="ATH - ATL">
         <View style={styles.textsContainer}>
           <Text style={[styles.titleInfo]}>All Time High:</Text>
           <Text style={styles.texts}>{JSON.stringify(route.params.ath)}</Text>
@@ -283,7 +283,7 @@ const DetailedCrypto = ({ route }) => {
           </Text>
         </View>
       </Collapsible>
-      <Collapsible style={styles.infoContainer}>
+      <Collapsible style={styles.infoContainer} title="Changes in 24h">
         <View style={styles.textsContainer}>
           <Text style={[styles.titleInfo]}>High 24h:</Text>
           <Text style={styles.texts}>
@@ -379,6 +379,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     borderRadius: 20,
     backgroundColor: "red",
+    display: "none",
   },
   chartContainer: {
     marginHorizontal: 20,
