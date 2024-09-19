@@ -19,13 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "",
+        "foregroundImage": "./assets/bulllogo.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.ralph_saridar.BullMarket"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c99d8f37-f7c4-437c-9c36-847000fd9e3e"
+      }
     }
   }
 }
