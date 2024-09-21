@@ -96,7 +96,7 @@ const CalculateAPY = () => {
               </View>
             ))}
             <TouchableOpacity
-              onPress={() => formikProps.handleSubmit}
+              onPress={() => formikProps.handleSubmit()}
               style={styles.ButtonStyled}
             >
               <Text style={styles.StyledText}>SUBMIT</Text>
